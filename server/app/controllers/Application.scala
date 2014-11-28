@@ -19,9 +19,16 @@ object Application extends Controller {
     Ok
   }
 
-  def humidity(value: Int) = Action { NotImplemented }
+  def humidity(value: Int) = Action {
+    // Assuming that value range is from 0 -> 255
+    val percentage = value.toDouble / 255.0
+    channel.push(Json.obj("humidity" -> percentage))
+    Ok
+  }
 
-  def temperature(value: Int) = Action { NotImplemented }
+  def temperature(value: Int) = Action {
+    channel.push(Json.obj("temperature" -> value))
+    Ok }
 
   def stream = Action {
     Ok.chunked(
