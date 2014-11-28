@@ -13,7 +13,7 @@ GPIO.setup(4,GPIO.IN)
 while True:
     try:
         value=GPIO.input(4)
-        urlopen(url + value, data=nodata, timeout=1)
+        urlopen(url + value.str(), data=nodata, timeout=1)
         print(value, end="", flush=True)
     except Exception as e:
         print('x', end="", flush=True)
