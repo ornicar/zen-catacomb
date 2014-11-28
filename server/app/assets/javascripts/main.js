@@ -1,7 +1,8 @@
 var source = new EventSource("/stream");
 
 source.addEventListener('message', function(e) {
-  console.log(e.data);
+  var json = JSON.parse(e.data);
+  
 }, false);
 
 source.addEventListener('open', function(e) {
@@ -13,3 +14,4 @@ source.addEventListener('error', function(e) {
     // Connection was closed.
   }
 }, false);
+
