@@ -5,7 +5,9 @@
 # Home page
 GET     /                           controllers.Application.index
 
+# Sensors input
 POST    /light                      controllers.Application.light
+POST    /humidity                   controllers.Application.humidity
 
 GET     /stream                     controllers.Application.stream
 

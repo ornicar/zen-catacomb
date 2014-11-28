@@ -13,6 +13,8 @@ object Application extends Controller {
     NotImplemented
   }
 
+  def humidity = Action { NotImplemented }
+
   def stream = Action {
     NotImplemented
   }
