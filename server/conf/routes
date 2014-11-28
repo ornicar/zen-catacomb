@@ -6,8 +6,9 @@
 GET     /                           controllers.Application.index
 
 # Sensors input
-POST    /light                      controllers.Application.light
-POST    /humidity                   controllers.Application.humidity
+POST    /light/:state               controllers.Application.light(state: Boolean)
+POST    /humidity/:value            controllers.Application.humidity(value: Int)
+POST    /temperature/:value         controllers.Application.temperature(value: Int)
 
 GET     /stream                     controllers.Application.stream
 

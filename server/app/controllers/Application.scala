@@ -14,12 +14,14 @@ object Application extends Controller {
 
   val (events, channel) = Concurrent.broadcast[JsValue]
 
-  def light = Action {
-    channel.push(Json.obj("foo" -> 42))
+  def light(state: Boolean) = Action {
+    channel.push(Json.obj("state" -> state))
     Ok
   }
 
-  def humidity = Action { NotImplemented }
+  def humidity(value: Int) = Action { NotImplemented }
+
+  def temperature(value: Int) = Action { NotImplemented }
 
   def stream = Action {
     Ok.stream {
