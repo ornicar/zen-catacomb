@@ -20,8 +20,8 @@ object Application extends Controller {
   }
 
   def humidity(value: Int) = Action {
-    // Assuming that value range is from 0 -> 255
-    val percentage = value.toDouble / 255.0
+    // Assuming that value range is from 0 -> 100
+    val percentage = value.toDouble / 100.0
     channel.push(Json.obj("humidity" -> percentage))
     Ok
   }
