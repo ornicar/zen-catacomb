@@ -11,6 +11,13 @@ var sensors = {
   }
 };
 
+function MOCK () {
+  setInterval(function () {
+    $.post("/light/"+(Math.random() > 0.3));
+    $.post("/humidity/"+Math.floor(Math.random() * 100));
+    $.post("/temperature/"+Math.floor(15 + Math.random() * 10));
+  }, 1000);
+}
 
 ////////// Connect and handle the Stream ///////
 
