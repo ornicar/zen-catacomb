@@ -1,20 +1,24 @@
-from urllib.request import urlopen
-from urllib.error import HTTPError
-import RPi.GPIO as GPIO
+import urllib
+# import RPi.GPIO as GPIO
 import time
 import sys
 
 url='http://10.0.25.240:8080/light/'
 nodata = "".encode("UTF-8")
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(4,GPIO.IN)
+# GPIO.setmode(GPIO.BCM)
+# GPIO.setup(4,GPIO.IN)
+
+def log(msg):
+    sys.stdout.write('.')
+    sys.stdout.flush()
 
 while True:
     try:
-        value=GPIO.input(4)
-        urlopen(url + str(value), data=nodata, timeout=1)
-        print(value, end="", flush=True)
+        # value=str(GPIO.input(4))
+        value = "1"
+        urllib.urlopen(url + value, data=nodata, timeout=1)
+        log(value)
     except Exception as e:
-        print('x', end="", flush=True)
+        log('x')
     time.sleep(1)
