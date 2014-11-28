@@ -1,5 +1,6 @@
 from urllib.request import urlopen
 from urllib.error import HTTPError
+import RPi.GPIO as GPIO
 import time
 import sys
 
